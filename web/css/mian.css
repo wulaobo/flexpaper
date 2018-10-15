@@ -1,0 +1,322 @@
+body {
+    background: url(../img/bodybg.gif) repeat-x center top;
+    color: #333333;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.tioNav {
+	height:20px;
+	width:100%;
+	padding:5px;
+
+}
+.tioNav ul {
+	float:right;
+}
+.tioNav ul li  {
+	margin:0 1px;
+	text-align: center;
+	padding:0 10px;
+	line-height:20px;
+}
+.tioNav ul li.first {
+	border-right:1px solid #fff;
+}
+.tioNav ul li ,
+.tioNav ul li a {
+	color:#fff;
+	display:inline-block
+}
+.header {
+	/*background-color: #0d5994;*/
+	height: 150px;
+	overflow: hidden;
+}
+.logo-panel {
+    float: left;
+    width: 363px;
+    line-height: 150px;
+}
+.headline-panel {
+	float: left;
+	width: 100%;
+	height: 150px;
+	max-width: 837px;
+	 line-height: 150px;
+	 overflow: hidden;
+}
+.headline-panel img {
+	width: 100%;
+	height: auto;
+	vertical-align: center;
+}
+.wp-nav {
+	/*background-color: #efeff0;*/
+	/*background-color: #0D5994;*/
+}
+.main-nav-panel ,
+.fuye-nav-panel{
+	margin: 0 auto;
+	background-color: #efeff0;
+	border-radius: 10px;
+}
+.main-nav-panel ul  li {
+	display: inline-block;
+	float: left;
+	width: 117px;
+	position: relative;
+	z-index: 100;
+	border-left: 1px solid #FFFFFF;
+	text-align: center;
+}
+.fuye-nav-panel ul  li {
+	display: inline-block;
+	float: left;
+	width: 118px;
+	position: relative;
+	z-index: 100;
+	border-left: 1px solid #FFFFFF;
+	text-align: center;
+}
+
+.main-nav-panel ul  li.border-first ,
+.fuye-nav-panel ul  li.border-first{
+	padding-left: 4px;	
+	border-left: 0;
+}
+.main-nav-panel ul  li.border-last,
+.main-nav-panel ul li.border-last {
+	padding-right: 4px;
+}
+.main-nav-panel a.menu-link ,
+.fuye-nav-panel a.menu-link {
+    display: inline-block;
+    /*padding: 0 28px;*/
+    height: 50px;
+    line-height: 50px;
+    color: #1455AD;
+    font-size: 16px;
+}
+.main-nav-panel a.menu-link:hover.
+.fuye-nav-panel a.menu-link:hover{
+	opacity: .7;
+	font-weight: 600;
+}
+.wp-container {
+}
+.container {
+	border: 2px solid #FFFFFF;
+	border-radius: 10px;
+}
+.wp-container .mod_l_top ,
+.wp-container .mod_l_bottom {
+	margin: 30px 10px;
+	border: 2px solid #FFFFFF;
+	border-radius: 5px;
+	width: 320px;
+	height: 200px;
+	overflow: hidden;
+}
+.wp-container .mod_l_top img,
+.wp-container .mod_l_bottom img {
+	width: 100%;
+	height: 100%;
+}
+.wp-container .mod_l_top {
+	margin-top: 0;
+}
+.wp-container .mod_l_bottom {
+	margin-bottom: 0;
+}
+.mod_l {
+    margin: 20px 0;
+}
+.mod_c {
+	width: 520px;
+	margin: 20px;
+	min-height: 200px;
+}
+.mod_c_top {
+	/*height: 150px;*/
+}
+.mod_c p.introduce  {
+	font-size: 16px;
+	text-indent: 2em;
+	text-align: left;
+}
+.mod_c_bottom {
+	width: 100%;
+	margin: 20px 0;
+	border: 1px solid #000;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.mod_c_bottom .books {
+	overflow: hidden;
+}
+.mod_c_bottom .books ul {
+	padding: 5px;
+}
+.mod_c_bottom .books ul li {
+	width: 120px;
+	height: 150px;
+	display: inline-block;
+	float: left;
+	padding: 1px;
+}
+.mod_c_bottom .books ul li img {
+	width: 100%;
+	height: 100%;
+} 
+.book_title {
+	overflow: hidden;
+}
+.book_title h3 {
+	text-align: center;
+	padding: 20px;
+	
+}
+.mod-r {
+	width: 240px;
+	margin: 20px;
+	background-color: #fff;
+	border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.mod-r .mod_r_panel {
+	height: 80px;
+	padding: 10px;
+	border: 1px dashed #000000;
+	margin: 10px 0;
+}
+.mod-r .mod_r_pane {
+	overflow: hidden;
+}
+.mod-r .mod_r_panel h3 {
+	color: #0D5994;
+	margin-left: 10px;
+}
+.titleSite {
+	float: left;
+	font-size: 16px;
+	font-weight: 700;
+	margin-left: 60px;
+	line-height: 24px;
+}
+.titleSite span {
+	display: block;
+}
+.mod-r .mod_r_panel a.titlePic {
+	display: block;
+	float: right;
+	right: 0;
+	width: 60px;
+	height: 60px;
+}
+.mod-r .mod_r_panel a img {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+.mod-r .panel_r_01 {
+	margin-top: 0;
+}
+/*副业的css*/
+.fuye-nav-panel {}
+
+.fuye-nav-panel ul li {
+	display: inline-block;
+}
+.footer {
+	height: 50px;
+	line-height: 50px;
+	background-color:#4c7ec0;
+	color: #fff;
+}
+.footer .footer-name {
+	float: left;
+	margin-left: 5px;
+}
+.footer .footer-info {
+	float: right;
+	display: inline-block;
+}
+.footer .footer-info span {
+	margin: 0 10px;
+}
+.fuye-container {
+	min-height: 600px;
+}
+.contents {
+	width: 100%;
+	
+}
+.top-index {
+	padding: 20px 0 0 20px;
+}
+.contents .content-right {
+	width: 100%;
+	float: left;
+}
+.contents .content-right ul li {
+	clear: both;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #808080;
+}
+.contents .content-right ul {
+	padding: 20px;
+}
+.num {
+	padding: 0 10px;
+}
+.contents .content-right ul li .indexpic {
+	width: 20px;
+	height: 20px;
+}
+.contents .content-right ul li .indexpic img {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+.contents .content-right ul li span {
+	display: inline;
+}
+.contents .content-right ul li span.time {
+	float: right;
+}
+.login .btn-login  button {
+	line-height: 30px;
+	background-color: #2475b4;
+	color: #FFFFFF;
+	font-weight: 400;
+	letter-spacing: 5px;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	width:70%;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.login .right a.bth-login {
+	font-size: 14px;
+	color: #808080;
+}
+.login .right a.bth-login:hover{
+	color: #000;
+	text-decoration: dashed;
+}

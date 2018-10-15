@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.domain">
+    <class name="Video" table="video">
+        <id name="id">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="date"></property>
+        <property name="author"></property>
+        <property name="filePath"></property>
+        <property name="title"></property>
+    </class>
+</hibernate-mapping>

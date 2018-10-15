@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--
+     # struts.objectFactory = spring   将action的创建交给spring容器
+     struts.objectFactory.spring.autoWire = name   spring负责装配Action依赖属性
+     page_base_decidedzone.action
+     -->
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <!-- 设置文件上传的总大小 默认为2M  1GB =1073741824 -->
+    <constant name="struts.multipart.maxSize" value="52428800000"></constant>
+    <!--<constant name="struts.multipart.parser" value="cos"></constant>-->
+
+    <package name="flexpaper" namespace="/" extends="struts-default">
+        <interceptors>
+            <!-- 注册拦截器 -->
+            <interceptor name="LoginInterceptor" class="com.web.interceptor.LoginInterceptor" />
+            <!-- 配置拦截器 -->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="LoginInterceptor">
+                    <param name="excludeMethods">login,findAllKeChengFile,findAllCanKaoFile,findAll,preview,findPassword</param>
+                </interceptor-ref>
+                <!-- 引用fileUpload拦截器 -->
+                <interceptor-ref name="defaultStack">
+                    <!-- 设置单个文件上传大小,默认为2M -->
+                    <param name="fileUpload.maximumSize">5242880000</param>
+                    <!-- 设置文件上传的后缀名,如果设置了,只能上传设置过的文件 -->
+                    <param name="fileUpload.allowedExtensions">.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.xls,.xlsx,.txt,.avi,.flv,.mp4</param>
+                </interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 指定默认拦截器栈 -->
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+
+        <!--&lt;!&ndash; 全局结果集配置 &ndash;&gt;-->
+        <global-results>
+            <result name="login" type="dispatcher">/index.jsp</result>
+        </global-results>
+
+        <!--视频上传-->
+        <action name="fileUpLoadAction_*" class="fileUpLoadAction" method="{1}">
+            <result name="list">/jsp/ShiPingfuye.jsp</result>
+            <result name="upload">/Admin/success.jsp</result>
+            <result name="preview">/media_player.jsp</result>
+            <result name="listhou">/Admin/deletefile_video.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">fileUpLoadAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <!-- 用户管理 -->
+        <action name="userAction_*" class="userAction" method="{1}">
+            <result name="login" type="dispatcher">/Admin/login.jsp</result>
+            <result name="zhuye">/Admin/zhuye.jsp</result>
+            <result name="qiantai">/index.jsp</result>
+        </action>
+
+        <!-- 课程简介管理 -->
+        <action name="keChengFileAction_*" class="keChengFileAction" method="{1}">
+            <result name="success">/Admin/success.jsp</result>
+            <result name="listhou">/Admin/deletefile_KeCheng.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="documentView">/documentView.jsp</result>
+            <result name="list">/jsp/KeChengfuye.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">keChengFileAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="preview">/documentView.jsp</result>
+
+        </action>
+
+        <!-- 参考文献管理 -->
+        <action name="canKaoFileAction_*" class="canKaoFileAction" method="{1}">
+            <result name="success">/Admin/success.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="listhou">/Admin/deletefile_CanKao.jsp</result>
+            <result name="documentView">/documentView.jsp</result>
+            <result name="list">/jsp/CanKaofuye.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">canKaoFileAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="preview">/documentView.jsp</result>
+
+        </action>
+
+        <!-- 教学大纲管理 -->
+        <action name="jiaoXueFileAction_*" class="jiaoXueFileAction" method="{1}">
+            <result name="success">/Admin/success.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="listhou">/Admin/deletefile_JiaoXue.jsp</result>
+            <result name="documentView">/documentView.jsp</result>
+            <result name="list">/jsp/JiaoXuefuye.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">jiaoXueFileAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="preview">/documentView.jsp</result>
+
+        </action>
+
+        <!-- 试卷及答案管理 -->
+        <action name="shiJuanFileAction_*" class="shiJuanFileAction" method="{1}">
+            <result name="success">/Admin/success.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="listhou">/Admin/deletefile_ShiJuan.jsp</result>
+            <result name="documentView">/documentView.jsp</result>
+            <result name="list">/jsp/ShiJuanfuye.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">shiJuanFileAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="preview">/documentView.jsp</result>
+
+        </action>
+
+        <!-- 实验指导管理 -->
+        <action name="shiYanFileAction_*" class="shiYanFileAction" method="{1}">
+            <result name="success">/Admin/success.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="listhou">/Admin/deletefile_ShiYan.jsp</result>
+            <result name="documentView">/documentView.jsp</result>
+            <result name="list">/jsp/ShiYanfuye.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">shiYanFileAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="preview">/documentView.jsp</result>
+
+        </action>
+
+        <!-- 授课教案管理 -->
+        <action name="shouKeFileAction_*" class="shouKeFileAction" method="{1}">
+            <result name="success">/Admin/success.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="listhou">/Admin/deletefile_ShouKe.jsp</result>
+            <result name="documentView">/documentView.jsp</result>
+            <result name="list">/jsp/ShouKefuye.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">shouKeFileAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="preview">/documentView.jsp</result>
+
+        </action>
+
+        <!-- 教学效果管理 -->
+        <action name="xiaoGuoFileAction_*" class="xiaoGuoFileAction" method="{1}">
+            <result name="success">/Admin/success.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="listhou">/Admin/deletefile_XiaoGuo.jsp</result>
+            <result name="documentView">/documentView.jsp</result>
+            <result name="list">/jsp/XiaoGuofuye.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">xiaoGuoFileAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="preview">/documentView.jsp</result>
+        </action>
+
+        <!-- 习题管理 -->
+        <action name="xiTiFileAction_*" class="xiTiFileAction" method="{1}">
+            <result name="success">/Admin/success.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="listhou">/Admin/deletefile_XiTi.jsp</result>
+            <result name="documentView">/documentView.jsp</result>
+            <result name="list">/jsp/XiTifuye.jsp</result>
+            <result name="del" type="redirectAction">
+                <param name="actionName">xiTiFileAction_findAllHou</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="preview">/documentView.jsp</result>
+        </action>
+
+    </package>
+
+</struts>
